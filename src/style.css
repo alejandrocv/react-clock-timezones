@@ -1,0 +1,40 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+h1, p {
+  font-family: Lato;
+}
+
+body{
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#container-list-clocks-badges{
+  margin: 5px 5px;
+}
+
+.btn-badge{
+  background-color: transparent;
+  padding: 0px !important;
+  color: white;
+  font-size: 12px;
+}
+
+.pbadge{
+   
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; 
+
+}
+
+.badge-label{
+  margin-right: 1px;
+}
+ 
+ .span-btn-badge{
+   padding-left: 2px 
+ }
+
+ .card-clock{
+   margin-top: 5px
+ }
