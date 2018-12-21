@@ -16,7 +16,7 @@ export default class Clock extends Component {
       time: dateconf,
       date: dateconf.getUTCFullYear() + "/" + (dateconf.getUTCMonth() + 1) + "/" + dateconf.getUTCDate(),
       offset: props.offset,
-      percent: dateconf.getMinutes() * 100 / 60
+      percent: dateconf.getHours() * 100 / 24
     };
   }
 
@@ -40,7 +40,7 @@ export default class Clock extends Component {
     this.setState({
       time: dateconf,
       date: dateconf.getUTCFullYear() + "/" + (dateconf.getUTCMonth() + 1) + "/" + dateconf.getUTCDate(),
-      percent: dateconf.getMinutes() * 100 / 60
+      percent: dateconf.getHours() * 100 / 24
     });
   }
 
