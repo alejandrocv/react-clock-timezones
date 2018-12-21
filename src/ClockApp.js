@@ -86,7 +86,7 @@ class ClockApp extends Component {
           </div>
 
 
-          <div className="col-md-4 col-sm-5 col-lg-4" style={{ "padding-top": 5 }}>
+          <div className="col-md-4 col-sm-5 col-lg-4" style={{ paddingTop: 5 }}>
             {
               (message)
                 ?<div className="alert alert-danger" role="alert">{message}</div>
