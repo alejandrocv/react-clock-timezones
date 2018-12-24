@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import Header from './components/Header';
 import AddTimezone from './components/AddTimezone'
 import BasicClockContainer from './components/BasicClockContainer'
+ 
 
 
 class ClockApp extends Component {
@@ -61,35 +62,35 @@ class ClockApp extends Component {
   render() {
     const { selectedOption, options, message, listClocks } = this.state;
 
+    const items = listClocks.map((item) => (
+      <div key={item.label} className="col-md-6 col-sm-12 col-lg-6 col card-clock">
+        <BasicClockContainer
+          titleClock={item.label} offset={item.offset} />
+      </div>
+    ));
+
+
     return (
       <div>
         <Header title="Basic Timezone Clock" />
         <div className="row" style={{ padding: 5 }}>
           <div className="col-md-7 col-sm-7 col-lg-5">
-            <div id="localClock">
+            <div id="localClock" >
               <BasicClockContainer titleClock={"Local Clock"} offset={0} />
             </div>
             <div id="clockList" className="row">
-              {
-                listClocks.map((item) => {
-                  return (
-
-                    <div key={item.label} className="col-md-6 col-sm-12 col-lg-4 col card-clock">
-                      <BasicClockContainer
-                        titleClock={item.label} offset={item.offset} />
-                    </div>
-
-                  )
-                })
-              }
+               {
+                  items
+                }
+             
             </div>
           </div>
 
 
-          <div className="col-md-4 col-sm-5 col-lg-4" style={{ paddingTop: 5 }}>
+          <div className="col-md-5 col-sm-5 col-lg-4" style={{ paddingTop: 5 }}>
             {
               (message)
-                ?<div className="alert alert-danger" role="alert">{message}</div>
+                ? <div className="alert alert-danger" role="alert">{message}</div>
                 : ""
             }
 
@@ -97,28 +98,25 @@ class ClockApp extends Component {
               handleChange={this.handleChange}
               selectedOption={this.state.selectedOption} />
             <div className="row " id="container-list-clocks-badges">
-              {
-                listClocks.map((item) => {
-                  return (
-                    <div key={item.label} className="col-md col-sm col-lg col">
-                      <div  className="badge badge-secondary badge-pill badge-label">
-                        <p className="pbadge">{item.label}
-                          <span className="span-btn-badge">
-                            <button
-                              type="button"
-                              className="btn btn-badge"
-                              onClick={this.deleteItem.bind(this, item)}>X</button>
-                          </span>
-                        </p>
 
-
-                      </div>
-
+              {listClocks.map((item) => {
+                return (
+                  <div key={item.label} className="col-md col-sm col-lg col">
+                    <div className="badge badge-secondary badge-pill badge-label">
+                      <p className="pbadge">{item.label}
+                        <span className="span-btn-badge">
+                          <button
+                            type="button"
+                            className="btn btn-badge"
+                            onClick={this.deleteItem.bind(this, item)}>X</button>
+                        </span>
+                      </p>
                     </div>
-                  )
-
-                })
+                  </div>
+                )
+              })
               }
+
             </div>
           </div>
 
